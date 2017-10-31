@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "suggest": {
+      "type": "completion",
+      "analyzer":"whitespace",
+      "contexts": [
+        {
+          "name": "productCategories",
+          "type": "category"
+        },
+        {
+          "name": "sellerIds",
+          "type": "category"
+        }
+      ]
+    },
+    "apin": {
+      "type": "keyword"
+    },
+    "title": {
+      "type": "text",
+      "analyzer":"my_analyzer"
+    },
+    "mpn": {
+      "type": "text",
+      "analyzer":"my_analyzer"
+    },
+    "description": {
+      "type": "text",
+      "analyzer":"my_analyzer"
+    },
+    "brand": {
+      "type": "text",
+      "analyzer":"my_analyzer"
+    }
+  }
+}

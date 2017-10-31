@@ -1,0 +1,162 @@
+{
+    "provider": {
+        "name": "ProductsService"
+    },
+    "consumer": {
+        "name": "CatalogService"
+    },
+    "interactions": [
+        {
+            "description": "Single Product Upsert Request",
+            "request": {
+                "method": "POST",
+                "path": "/products",
+                "headers": {
+                    "Content-Type": "application/json; charset=UTF-8"
+                },
+                "body": {
+                    "products": [
+                        {
+                            "apin": "ContractsTest1",
+                            "mpn": "XYZ-1234",
+                            "title": "Game of Thrones",
+                            "description": "Some desc",
+                            "brand": "ContractsTest",
+                            "categories": [
+                                {
+                                    "id": "1",
+                                    "name": "Books"
+                                }
+                            ],
+                            "sellers": [
+                                {
+                                    "id": "1",
+                                    "name": "Seller1",
+                                    "sku": "SKU-1-1"
+                                }
+                            ],
+                            "attributes": {
+                                "attribute1": "attribute1Value",
+                                "attribute2": "attribute2Value",
+                                "attribute3": 34,
+                                "attribute4": 34.2,
+                                "attribute5": true
+                            }
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "status": 200
+            },
+            "providerStates": [
+                {
+                    "name": "ContractsVerificationState"
+                }
+            ]
+        },
+        {
+            "description": "Multiple Product Upsert Request",
+            "request": {
+                "method": "POST",
+                "path": "/products",
+                "headers": {
+                    "Content-Type": "application/json; charset=UTF-8"
+                },
+                "body": {
+                    "products": [
+                        {
+                            "apin": "ContractTest1",
+                            "mpn": "XYZ-1234",
+                            "title": "Game of Thrones",
+                            "description": "Some desc",
+                            "brand": "ContractTest",
+                            "categories": [
+                                {
+                                    "id": "1",
+                                    "name": "Books"
+                                }
+                            ],
+                            "sellers": [
+                                {
+                                    "id": "1",
+                                    "name": "Seller1",
+                                    "sku": "SKU-1-1"
+                                }
+                            ],
+                            "attributes": {
+                                "attribute1": "attribute1Value",
+                                "attribute2": "attribute2Value",
+                                "attribute3": 34,
+                                "attribute4": 34.2,
+                                "attribute5": true
+                            }
+                        },
+                        {
+                            "apin": "ContractTest2",
+                            "mpn": "ABC-5678",
+                            "title": "Goblet of Fire",
+                            "description": "ContractTest",
+                            "brand": "Potter Mania",
+                            "categories": [
+                                {
+                                    "id": "1",
+                                    "name": "Books"
+                                },
+                                {
+                                    "id": "2",
+                                    "name": "Movies"
+                                }
+                            ],
+                            "sellers": [
+                                {
+                                    "id": "1",
+                                    "sku": "SKU-1-2"
+                                },
+                                {
+                                    "id": "2",
+                                    "sku": "SKU-2-2"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "status": 200
+            },
+            "providerStates": [
+                {
+                    "name": "ContractsVerificationState"
+                }
+            ]
+        },
+        {
+            "description": "Bad Product Upsert Request",
+            "request": {
+                "method": "POST",
+                "path": "/products",
+                "headers": {
+                    "Content-Type": "application/json; charset=UTF-8"
+                },
+                "body": ""
+            },
+            "response": {
+                "status": 400
+            },
+            "providerStates": [
+                {
+                    "name": "ContractsVerificationState"
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "pact-specification": {
+            "version": "3.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.5.3"
+        }
+    }
+}

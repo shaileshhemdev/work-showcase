@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="warn" monitorInterval="5">
+    <!-- This filter is used to generally enable TRACE logging if "x-debug-enabled" in the ThreadContext has the value "true" -->
+    <DynamicThresholdFilter key="x-debug-enabled" onMatch="ACCEPT" onMismatch="NEUTRAL">
+        <KeyValuePair key="true" value="DEBUG"/>
+    </DynamicThresholdFilter>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{ISO8601}] [%level] [SEARCH-SERVICE] [%X{X-B3-TraceId}] [%X{X-B3-SpanId}] [%X{x-acs-username}] [%X{x-acs-host}] [%t] [%logger{36}] [%X{x-acs-locale}] [%X{x-acs-ipaddress}] [%msg]%n"/>
+        </Console>
+
+        <RollingRandomAccessFile name="AppLog" fileName="app.log"
+                                 filePattern="$${date:yyyy-MM}/app-%d{yyyy-MM-dd-HH}-%i.log" immediateFlush="false" >
+            <PatternLayout pattern="[%d{ISO8601}] [%level] [SEARCH-SERVICE] [%t] [%logger{36}] [%msg]%n"/>
+
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Root level="DEBUG">
+            <AppenderRef ref="AppLog"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

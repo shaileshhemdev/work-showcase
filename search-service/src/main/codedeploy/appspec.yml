@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: search-service.jar
+    destination: /opt
+hooks:
+  ApplicationStop:
+    - location: service_stop.sh
+      runas: root
+  BeforeInstall:
+    - location: remove_old_version.sh
+      runas: root
+  ApplicationStart:
+    - location: service_start.sh
+      runas: root
+  ValidateService:
+    - location: verify_service.sh
+      runas: root

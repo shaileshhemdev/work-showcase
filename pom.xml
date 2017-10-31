@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.work.personal</groupId>
+    <artifactId>showcase</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>search-service</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <io.swagger.version>1.5.16</io.swagger.version>
+        <io.springfox.version>2.7.0</io.springfox.version>
+        <aws.cloud.autoconfigure.version>1.2.1.RELEASE</aws.cloud.autoconfigure.version>
+        <aws.signing.interceptor.version>0.0.14</aws.signing.interceptor.version>
+        <spring.data.jpa.version>1.11.4.RELEASE</spring.data.jpa.version>
+        <spring.data.jpa.jest.version>2.3.1.RELEASE</spring.data.jpa.jest.version>
+        <spring.boot.version>1.5.4.RELEASE</spring.boot.version>
+        <joda.time.version>2.0.1</joda.time.version>
+        <lombok.version>1.16.18</lombok.version>
+        <spring.security.version>4.2.3.RELEASE</spring.security.version>
+        <spring.boot.tomcat.version>1.5.4.RELEASE</spring.boot.tomcat.version>
+        <pact.io.version>3.5.3</pact.io.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Swagger  -->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-core</artifactId>
+                <version>${io.swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${io.swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${io.springfox.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${io.springfox.version}</version>
+            </dependency>
+
+            <!-- Spring Boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>logback-classic</artifactId>
+                        <groupId>ch.qos.logback</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                        <groupId>org.springframework.boot</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jadira.usertype</groupId>
+                <artifactId>usertype.jodatime</artifactId>
+                <version>${joda.time.version}</version>
+            </dependency>
+
+            <!-- Spring Data Elastic Search Libraries -->
+            <dependency>
+                <groupId>com.github.vanroy</groupId>
+                <artifactId>spring-boot-starter-data-jest</artifactId>
+                <version>${spring.data.jpa.jest.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                        <groupId>org.springframework.boot</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>vc.inreach.aws</groupId>
+                <artifactId>aws-signing-request-interceptor</artifactId>
+                <version>${aws.signing.interceptor.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.amazonaws</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-aws-autoconfigure</artifactId>
+                <version>${aws.cloud.autoconfigure.version}</version>
+            </dependency>
+
+            <!-- Logging -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-log4j2</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- Test dependencies  -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-csv</artifactId>
+                <version>1.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>au.com.dius</groupId>
+                <artifactId>pact-jvm-consumer-junit_2.11</artifactId>
+                <version>${pact.io.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+</project>

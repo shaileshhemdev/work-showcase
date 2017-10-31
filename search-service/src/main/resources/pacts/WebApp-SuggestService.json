@@ -1,0 +1,109 @@
+{
+    "provider": {
+        "name": "SuggestService"
+    },
+    "consumer": {
+        "name": "APNWebApp"
+    },
+    "interactions": [
+        {
+            "description": "Example Interaction for Suggest Search",
+            "request": {
+                "method": "GET",
+                "path": "/products",
+                "query": {
+                    "searchType": [
+                        "suggest"
+                    ],
+                    "input": [
+                        "ContractTest"
+                    ]
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": {
+                    "pageNumber": 0,
+                    "totalRecords": 2,
+                    "hasMore": false,
+                    "items": [
+                        {
+                            "apin": "ContractTest1",
+                            "mpn": "XYZ-1234",
+                            "title": "Game of Thrones",
+                            "brand": "ContractTest",
+                            "description": "Some desc",
+                            "timestamp": 1504563504000,
+                            "attributes": {
+                                "attribute5": true,
+                                "attribute4": 34.2,
+                                "attribute1": "attribute1Value",
+                                "attribute3": 34,
+                                "attribute2": "attribute2Value"
+                            },
+                            "categories": [
+                                {
+                                    "id": "1",
+                                    "name": "Aircraft Parts"
+                                }
+                            ],
+                            "sellers": [
+                                {
+                                    "id": "1",
+                                    "name": "PartsBase",
+                                    "sku": "SKU-1-1"
+                                }
+                            ]
+                        },
+                        {
+                            "apin": "ContractTest2",
+                            "mpn": "C5054002-484",
+                            "title": "MOUNT-R/H-ENGINE",
+                            "brand": "",
+                            "description": "ContractTest",
+                            "timestamp": 1504563504000,
+                            "attributes": {
+                                
+                            },
+                            "categories": [
+                                {
+                                    "id": "1",
+                                    "name": "Aircraft Parts"
+                                },
+                                {
+                                    "id": "2",
+                                    "name": "Pilot Supplies"
+                                }
+                            ],
+                            "sellers": [
+                                {
+                                    "id": "1",
+                                    "name": null,
+                                    "sku": "SKU-1-2"
+                                },
+                                {
+                                    "id": "2",
+                                    "name": null,
+                                    "sku": "SKU-2-2"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "providerStates": [
+                {
+                    "name": "Test State"
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "pact-specification": {
+            "version": "3.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.5.3"
+        }
+    }
+}

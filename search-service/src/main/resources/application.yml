@@ -1,0 +1,35 @@
+spring:
+  profiles.active: aws
+
+management.health.status.elasticsearch: false
+
+---
+
+spring:
+  profiles: aws
+  data:
+    jest:
+      uri: ${AWS_ES_CLUSTER_URL}
+      aws-region: ${AWS_ES_REGION}
+
+ribbon-connect-timeout: 30000
+ribbon-read-timeout: 300000         # 5 minutes (to allow long-running requests)
+
+logging:
+  config: classpath:log4j2.xml
+
+security:
+  user:
+    name: admin
+    password: secret
+
+cloud:
+  aws:
+    credentials:
+      accessKey: ${AWS_ES_ACCESS_KEY}
+      secretKey: ${AWS_ES_ACCESS_SECRET}
+      instanceProfile: false
+      profileName:
+    region:
+      static: ${AWS_ES_REGION}
+    stack.auto: false
