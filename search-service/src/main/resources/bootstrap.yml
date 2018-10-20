@@ -1,6 +1,12 @@
 spring:
   application:
     name: search-service
+  jmx:
+    default-domain: ${spring.application.name}
+
+endpoints:
+  jmx:
+    domain: ${spring.application.name}
 
 server:
   context-path: /${spring.application.name}

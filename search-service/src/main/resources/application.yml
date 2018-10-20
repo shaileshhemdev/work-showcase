@@ -33,3 +33,8 @@ cloud:
     region:
       static: ${AWS_ES_REGION}
     stack.auto: false
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: false

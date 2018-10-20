@@ -7,7 +7,8 @@ import lombok.Getter;
 @Getter
 public enum SearchType {
     SUGGEST("suggest"),
-    TERM("term");
+    TERM("term"),
+    FULL_TEXT("ft");
 
     private String value;
 }
