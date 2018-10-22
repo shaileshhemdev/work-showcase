@@ -10,6 +10,7 @@
     <modules>
         <module>search-service</module>
         <module>service-discovery</module>
+        <module>node-sidecar</module>
     </modules>
     <packaging>pom</packaging>
 
